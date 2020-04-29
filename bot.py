@@ -7,8 +7,9 @@ from threading import Thread
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
 import os
+
+TWICH_NAME = ""
 TOKEN_FILE = open(os.path.dirname(os.path.realpath(__file__)) + '/twitch-auth.txt', 'r')
 TOKEN = TOKEN_FILE.read()
 TOKEN_FILE.close()
@@ -80,10 +81,10 @@ votingWinnerWhoCanMessage = False
 
 SERVER = "irc.twitch.tv"
 PORT = 6667
-PASS = "oauth:pdqis9fp2zwd79ci1pchjg7wjhophc"
+PASS = TOKEN
 BOT ="TwitchBot"
-CHANNEL = "sockheadrps"
-OWNER = "sockheadrps"
+CHANNEL = TWICH_NAME
+OWNER = TWICH_NAME
 irc = socket.socket()
 irc.connect((SERVER, PORT))
 irc.send((  "PASS " + PASS + "\n" +
